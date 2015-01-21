@@ -1,0 +1,8 @@
+# Folders
+/bin
+/obj
+
+# File types
+Web.config
+Web.Debug.config
+Web.Release.config

@@ -16,8 +16,8 @@ namespace MetaConfigService.Net.Services
     {
         public async Task<List<BsonDocument>> GetAdvertisers()
         {
-            var mongoClient = new MongoClient(ConfigurationManager.ConnectionStrings["metaConfig"].ConnectionString);
-            var mongoDb = mongoClient.GetDatabase(ConfigurationManager.AppSettings["dbName"]);
+            var mongoClient = new MongoClient(ConfigurationManager.ConnectionStrings["mongoDbConnection"].ConnectionString);
+            var mongoDb = mongoClient.GetDatabase(ConfigurationManager.AppSettings["mongoDbName"]);
             var collection = await mongoDb.GetCollection<BsonDocument>("advertisers").Find(new BsonDocument()).ToListAsync();
 
             return collection;
